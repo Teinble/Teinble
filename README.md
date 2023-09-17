@@ -1,16 +1,26 @@
-### Hi there 👋
+# 🌐 About Me
+Welcome to the GitHub page of Xiling Zhao! I'm a passionate sophomore from the University of Toronto with a specialization in computer science. With a critical thinking mindset, I'm not only an organizer and a seeker of optimal solutions but also an active learner. Let's collaborate and code the future together!
 
-<!--
-**Teinble/Teinble** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
+## 🎓 Education
+- **University of Toronto, St. George**
+  - *Specialist in Bachelor of Science in Computer Science, Arts & Science Internship Program*
+  - Duration: Sep 2021 - Present
+  - Achievements: Dean’s List Scholar
+  - cGPA: 3.94/4.00
+  - Courses Taken: Computer Organization, Software Design, Introduction to Databases, Software Tools and Systems Programming, and more.
 
-Here are some ideas to get you started:
+## ✨ Skills
+- Python (NumPy)
+- Java 
+- SQL (MySQL, PostgreSQL)
+- C
+- Selenium
+- Shell (Bash, ZSH)
+- Linux / Unix
+- MIPS Assembly
 
-- 🔭 I’m currently working on ...
-- 🌱 I’m currently learning ...
-- 👯 I’m looking to collaborate on ...
-- 🤔 I’m looking for help with ...
-- 💬 Ask me about ...
-- 📫 How to reach me: ...
-- 😄 Pronouns: ...
-- ⚡ Fun fact: ...
--->
+## 🎉 Hobbies
+- 🏂 Snowboarding
+- 🏋️ Fitness
+- 📺 Watching TV Shows
+- 🍳 Cooking
