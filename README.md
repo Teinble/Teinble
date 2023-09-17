@@ -1,5 +1,5 @@
 # 🌐 About Me
-Named **Will**, also can call my full name Xiling! I'm a passionate sophomore from the University of Toronto with a specialization in computer science. With a critical thinking mindset, I'm not only an organizer and a seeker of optimal solutions but also an active learner. Let's collaborate and code the future together!
+Name is Xiling, can also call me **Will**! I'm a passionate sophomore from the University of Toronto with a specialization in computer science. With a critical thinking mindset, I'm not only an organizer and a seeker of optimal solutions but also an active learner. Let's collaborate and code the future together!
 
 ## 🎓 Education
 - **University of Toronto, St. George**
