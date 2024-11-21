@@ -7,11 +7,11 @@ I'm a passionate sophomore from the University of Toronto with a specialization 
   - *Specialist in Bachelor of Science in Computer Science, Arts & Science Internship Program*
   - Duration: Sep 2021 - Present
   - Achievements: Dean’s List Scholar
-  - cGPA: 3.94/4.00
-  - Courses Taken: Computer Organization, Software Design, Introduction to Databases, Software Tools and Systems Programming, and more.
+  - cGPA: 3.93/4.00
+  - Courses Taken: Natural Language Processing, Computer Organization, Software Design, Introduction to Databases, Software Tools and Systems Programming, and more.
 
 ## ✨ Skills
-- Python (NumPy)
+- Python
 - Java 
 - SQL (MySQL, PostgreSQL)
 - C
