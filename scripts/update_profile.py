@@ -118,11 +118,13 @@ def collect_activity() -> dict[str, str]:
         for commit in commits.values()
     )
     private_count = sum(repo["isPrivate"] for repo in repos)
-    scope = (
-        f"private + public · {private_count} private repos"
-        if private_count
-        else "PROFILE_TOKEN connected · 0 private repos visible"
-    )
+    if private_count == 0:
+        raise RuntimeError(
+            "PROFILE_TOKEN is valid but cannot see any private repositories. "
+            "Grant the token access to the private repository owner and repositories, "
+            "including organization authorization when required."
+        )
+    scope = f"private + public · {private_count} private repos"
     return {
         "tracked_repos": str(len(repos)),
         "commits": f"{len(commits):,}",
