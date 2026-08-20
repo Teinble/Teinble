@@ -197,8 +197,6 @@ def main() -> None:
     for filename in (
         "profile-dark.svg",
         "profile-light.svg",
-        "contact-status-dark.svg",
-        "contact-status-light.svg",
     ):
         update_svg(ROOT / filename, values)
     print(f"Updated {USERNAME} profile at {datetime.now(timezone.utc).isoformat()}")
