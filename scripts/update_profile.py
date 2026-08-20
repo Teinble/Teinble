@@ -57,7 +57,7 @@ def collect_activity() -> dict[str, str]:
           ownerAffiliations: [OWNER, COLLABORATOR, ORGANIZATION_MEMBER],
           orderBy: {field: PUSHED_AT, direction: DESC}
         ) {
-          nodes { nameWithOwner isPrivate }
+          nodes { nameWithOwner isPrivate primaryLanguage { name } }
           pageInfo { hasNextPage endCursor }
         }
       }
@@ -118,6 +118,14 @@ def collect_activity() -> dict[str, str]:
     ]
     recent_additions = sum(commit["additions"] for commit in recent_commits)
     recent_deletions = sum(commit["deletions"] for commit in recent_commits)
+    language_counts = Counter(
+        repo["primaryLanguage"]["name"]
+        for repo in repos
+        if repo.get("primaryLanguage")
+    )
+    language_text = " · ".join(
+        name for name, _ in language_counts.most_common(3)
+    ) or "—"
     pull_request_query = """
     query($query: String!) {
       search(query: $query, type: ISSUE, first: 1) { issueCount }
@@ -138,7 +146,9 @@ def collect_activity() -> dict[str, str]:
     return {
         "commits": f"{len(commits):,}",
         "pull_requests": f"{pull_request_count:,}",
-        "lines_changed_per_day": f"{(recent_additions + recent_deletions) / 365:,.0f}",
+        "lines_added_per_day": f"+{recent_additions / 365:,.0f}",
+        "lines_deleted_per_day": f"−{recent_deletions / 365:,.0f}",
+        "languages": language_text,
         "activity_scope": scope,
     }
 
