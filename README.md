@@ -3,6 +3,6 @@
   <img alt="Teinble — Xiling Zhao's terminal-style GitHub profile" src="./profile-light.svg">
 </picture>
 
-[Website](https://xilingzhao.com) · [LinkedIn](https://www.linkedin.com/in/xilingzhao)
+[`$ open xilingzhao.com`](https://xilingzhao.com) · [`$ connect --linkedin xilingzhao`](https://www.linkedin.com/in/xilingzhao)
 
 <!-- Generated profile art. Statistics update automatically through GitHub Actions. -->
