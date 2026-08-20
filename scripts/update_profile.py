@@ -7,6 +7,7 @@ from collections import Counter
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
 from urllib.request import Request, urlopen
+from zoneinfo import ZoneInfo
 
 
 USERNAME = os.getenv("PROFILE_USERNAME", "Teinble")
@@ -174,6 +175,9 @@ def collect() -> dict[str, str]:
         values.update(collect_activity())
     else:
         values["activity_scope"] = "private + public · secure sync required"
+    values["last_updated"] = datetime.now(ZoneInfo("America/Toronto")).strftime(
+        "%Y-%m-%d %H:%M %Z"
+    )
     return values
 
 
@@ -190,7 +194,12 @@ def update_svg(path: Path, values: dict[str, str]) -> None:
 
 def main() -> None:
     values = collect()
-    for filename in ("profile-dark.svg", "profile-light.svg"):
+    for filename in (
+        "profile-dark.svg",
+        "profile-light.svg",
+        "contact-status-dark.svg",
+        "contact-status-light.svg",
+    ):
         update_svg(ROOT / filename, values)
     print(f"Updated {USERNAME} profile at {datetime.now(timezone.utc).isoformat()}")
 
