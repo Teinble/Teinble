@@ -24,6 +24,14 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
+      - name: Verify private activity token
+        env:
+          PROFILE_TOKEN: ${{ secrets.PROFILE_TOKEN }}
+        run: |
+          if [[ -z "${PROFILE_TOKEN}" ]]; then
+            echo "::error title=Missing PROFILE_TOKEN::Add the repository Actions secret PROFILE_TOKEN before refreshing private activity."
+            exit 1
+          fi
       - name: Refresh GitHub activity
         env:
           PROFILE_TOKEN: ${{ secrets.PROFILE_TOKEN }}
