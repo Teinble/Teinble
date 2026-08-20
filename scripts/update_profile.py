@@ -110,13 +110,15 @@ def collect_activity() -> dict[str, str]:
                 break
             cursor = history["pageInfo"]["endCursor"]
 
-    additions = sum(commit["additions"] for commit in commits.values())
-    deletions = sum(commit["deletions"] for commit in commits.values())
     cutoff = datetime.now(timezone.utc) - timedelta(days=365)
-    recent_count = sum(
-        datetime.fromisoformat(commit["committedDate"].replace("Z", "+00:00")) >= cutoff
+    recent_commits = [
+        commit
         for commit in commits.values()
-    )
+        if datetime.fromisoformat(commit["committedDate"].replace("Z", "+00:00")) >= cutoff
+    ]
+    recent_additions = sum(commit["additions"] for commit in recent_commits)
+    recent_deletions = sum(commit["deletions"] for commit in recent_commits)
+    active_days = len({commit["committedDate"][:10] for commit in recent_commits})
     private_count = sum(repo["isPrivate"] for repo in repos)
     if private_count == 0:
         raise RuntimeError(
@@ -126,12 +128,11 @@ def collect_activity() -> dict[str, str]:
         )
     scope = f"private + public · {private_count} private repos"
     return {
-        "tracked_repos": str(len(repos)),
         "commits": f"{len(commits):,}",
-        "commits_per_day": f"{recent_count / 365:.2f}",
-        "lines_net": f"{additions - deletions:,}",
-        "lines_added": f"+{additions:,}",
-        "lines_deleted": f"-{deletions:,}",
+        "commits_per_day": f"{len(recent_commits) / 365:.2f}",
+        "active_days": str(active_days),
+        "lines_added_per_day": f"+{recent_additions / 365:,.0f}",
+        "lines_deleted_per_day": f"-{recent_deletions / 365:,.0f}",
         "activity_scope": scope,
     }
 
