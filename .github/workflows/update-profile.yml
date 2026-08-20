@@ -2,6 +2,14 @@ name: Update profile statistics
 
 on:
   workflow_dispatch:
+  push:
+    branches:
+      - main
+      - agent/night-owl-profile
+    paths:
+      - .github/workflows/update-profile.yml
+      - scripts/update_profile.py
+      - README.md
   schedule:
     - cron: "17 9 * * *"
 
