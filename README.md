@@ -3,6 +3,9 @@
   <img alt="Teinble — Xiling Zhao's terminal-style GitHub profile" src="./profile-light.svg">
 </picture>
 
-[Website](https://xilingzhao.com) · [LinkedIn](https://www.linkedin.com/in/xilingzhao)
+<p>
+  <a href="https://xilingzhao.com"><img src="./contact-website.svg" alt="$ open xilingzhao.com" height="54"></a>
+  <a href="https://www.linkedin.com/in/xilingzhao"><img src="./contact-linkedin.svg" alt="$ connect --linkedin xilingzhao" height="54"></a>
+</p>
 
 <!-- Generated profile art. Statistics update automatically through GitHub Actions. -->
