@@ -118,7 +118,15 @@ def collect_activity() -> dict[str, str]:
     ]
     recent_additions = sum(commit["additions"] for commit in recent_commits)
     recent_deletions = sum(commit["deletions"] for commit in recent_commits)
-    active_days = len({commit["committedDate"][:10] for commit in recent_commits})
+    pull_request_query = """
+    query($query: String!) {
+      search(query: $query, type: ISSUE, first: 1) { issueCount }
+    }
+    """
+    pull_request_count = graphql(
+        pull_request_query,
+        {"query": f"is:pr author:{USERNAME}"},
+    )["search"]["issueCount"]
     private_count = sum(repo["isPrivate"] for repo in repos)
     if private_count == 0:
         raise RuntimeError(
@@ -129,8 +137,7 @@ def collect_activity() -> dict[str, str]:
     scope = f"private + public · {private_count} private repos"
     return {
         "commits": f"{len(commits):,}",
-        "commits_per_day": f"{len(recent_commits) / 365:.2f}",
-        "active_days": str(active_days),
+        "pull_requests": f"{pull_request_count:,}",
         "lines_added_per_day": f"+{recent_additions / 365:,.0f}",
         "lines_deleted_per_day": f"-{recent_deletions / 365:,.0f}",
         "activity_scope": scope,
