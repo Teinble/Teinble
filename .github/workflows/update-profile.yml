@@ -5,7 +5,7 @@ on:
   push:
     branches:
       - main
-      - agent/night-owl-profile
+      - 'agent/**'
     paths:
       - .github/workflows/update-profile.yml
       - scripts/update_profile.py
