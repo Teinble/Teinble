@@ -9,6 +9,6 @@ To include private repositories:
 3. In the `Teinble/Teinble` repository, create an Actions secret named `PROFILE_TOKEN` containing that token.
 4. Run the **Update profile statistics** workflow once from the Actions tab.
 
-The SVG confirms how many private repositories are visible after syncing. `commits.total` uses authored commits on accessible default branches, `pull_requests.total` uses pull requests authored by the profile owner, and additions/deletions per day use authored commits over the trailing 365 days.
+The SVG confirms how many private repositories are visible after syncing. `commits.total` uses authored commits on accessible default branches, `pull_requests.total` uses pull requests authored by the profile owner, and `lines.changed/day` is the average sum of additions and deletions across authored commits over the trailing 365 days.
 
 If the workflow says the token can see zero private repositories, edit or replace the PAT. For a fine-grained PAT, its resource owner must own the private repositories and those repositories must be selected. Organization-owned repositories may also require organization approval or SSO authorization.

@@ -138,8 +138,7 @@ def collect_activity() -> dict[str, str]:
     return {
         "commits": f"{len(commits):,}",
         "pull_requests": f"{pull_request_count:,}",
-        "lines_added_per_day": f"+{recent_additions / 365:,.0f}",
-        "lines_deleted_per_day": f"-{recent_deletions / 365:,.0f}",
+        "lines_changed_per_day": f"{(recent_additions + recent_deletions) / 365:,.0f}",
         "activity_scope": scope,
     }
 
