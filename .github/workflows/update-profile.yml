@@ -1,0 +1,47 @@
+name: Update profile statistics
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+      - agent/night-owl-profile
+    paths:
+      - .github/workflows/update-profile.yml
+      - scripts/update_profile.py
+      - README.md
+  schedule:
+    - cron: "17 9 * * *"
+
+permissions:
+  contents: write
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Verify private activity token
+        env:
+          PROFILE_TOKEN: ${{ secrets.PROFILE_TOKEN }}
+        run: |
+          if [[ -z "${PROFILE_TOKEN}" ]]; then
+            echo "::error title=Missing PROFILE_TOKEN::Add the repository Actions secret PROFILE_TOKEN before refreshing private activity."
+            exit 1
+          fi
+      - name: Refresh GitHub activity
+        env:
+          PROFILE_TOKEN: ${{ secrets.PROFILE_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PROFILE_USERNAME: Teinble
+        run: python scripts/update_profile.py
+      - name: Commit changes
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add profile-dark.svg profile-light.svg
+          git diff --cached --quiet || git commit -m "chore: refresh profile stats"
+          git push
