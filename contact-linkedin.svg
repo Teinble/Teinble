@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="430" height="54" viewBox="0 0 430 54" role="img" aria-label="Connect with Xiling Zhao on LinkedIn">
+<title>Connect with Xiling Zhao on LinkedIn</title>
+<style>
+  .panel-start { stop-color: #ffffff; }
+  .panel-end { stop-color: #f3f5f7; }
+  .frame { stroke: #d7dce2; }
+  .prompt { fill: #08916a; }
+  .command { fill: #288ed7; }
+  .value { fill: #2aa298; }
+  .arrow { fill: #d6438a; }
+  @media (prefers-color-scheme: dark) {
+    .panel-start { stop-color: #071f2f; }
+    .panel-end { stop-color: #0b2538; }
+    .frame { stroke: #1d3b53; }
+    .prompt { fill: #22da6e; }
+    .command { fill: #82aaff; }
+    .value { fill: #7fdbca; }
+    .arrow { fill: #c792ea; }
+  }
+</style>
+<defs>
+  <linearGradient id="panel" x1="0" y1="0" x2="1" y2="1">
+    <stop class="panel-start" offset="0"/><stop class="panel-end" offset="1"/>
+  </linearGradient>
+</defs>
+<rect class="frame" x="1" y="1" width="428" height="52" rx="11" fill="url(#panel)" stroke-width="2"/>
+<circle class="prompt" cx="20" cy="27" r="4"/>
+<text x="34" y="34" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,monospace" font-size="16">
+  <tspan class="prompt" font-weight="700">$</tspan>
+  <tspan class="command" font-weight="700"> connect --linkedin</tspan>
+  <tspan class="value"> xilingzhao</tspan>
+</text>
+<text class="arrow" x="400" y="34" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,monospace" font-size="18">↗</text>
+</svg>
