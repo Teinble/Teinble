@@ -43,6 +43,6 @@
 <text x="515" y="588" class="heading"><tspan class="prompt">$</tspan> <tspan class="command">education</tspan> --timeline</text>
 <text x="535" y="620" font-size="16"><tspan class="purple">01</tspan>  Bachelor's · Computer Science Specialist · U of T · <tspan class="value">GPA 3.94</tspan></text>
 <text x="535" y="648" font-size="16"><tspan class="purple">02</tspan>  MScAC '27 · AI concentration · U of T · <tspan class="value">GPA 4.00</tspan></text>
-<text x="515" y="686" font-size="15"><tspan class="prompt">$</tspan> <tspan class="command">status</tspan> --updated <tspan id="last_updated" class="value">2026-08-31 13:04 EDT</tspan></text>
+<text x="515" y="686" font-size="15"><tspan class="prompt">$</tspan> <tspan class="command">status</tspan> --updated <tspan id="last_updated" class="value">2026-09-01 10:09 EDT</tspan></text>
 <text x="1110" y="697" class="small muted">Night Owl</text>
 </svg>
